@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Emergency Control & Checklist System - responsive emergency control room prototype">
+  <title>Emergency Control & Checklist System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top-header">
+  <div class="header-inner">
+    <h1>🚨 Emergency Control & Checklist System</h1>
+    <div class="system-label">EMERGENCY CONTROL ROOM</div>
+  </div>
+</header>
+
+<main class="container">
+  <section id="emergencyAlert" class="emergency-alert">
+    <div class="alert-title">🔴 EMERGENCY ALERT — CHECKLIST INCOMPLETE</div>
+    <div class="alert-info">
+      <div><strong>Emergency:</strong> <span id="alertEmergency"></span></div>
+      <div><strong>Location:</strong> <span id="alertLocation"></span></div>
+      <div><strong>Pending Actions:</strong> <span id="alertPending"></span></div>
+    </div>
+  </section>
+
+  <section id="completeBanner" class="complete-banner">
+    🟢 CHECKLIST COMPLETE — सभी कार्रवाई पूर्ण
+  </section>
+
+  <section class="search-panel">
+    <input id="searchInput" type="search" class="search-box"
+      placeholder="🔎 Emergency Number या Location से Search करें — जैसे ER-2026-001, Naya Ganj, Hathras Junction, Mursan"
+      autocomplete="off">
+  </section>
+
+  <section class="dashboard">
+    <aside class="panel">
+      <div class="panel-header">
+        <h2>Emergency List</h2>
+        <span id="emergencyCount" class="count-badge">0</span>
+      </div>
+
+      <div class="new-emergency">
+        <div class="form-group">
+          <label for="newEmergencyNumber">Emergency Number</label>
+          <input id="newEmergencyNumber" class="form-control"
+            placeholder="खाली छोड़ने पर Auto Generate">
+        </div>
+
+        <div class="form-group">
+          <label for="newEmergencyType">घटना का प्रकार</label>
+          <select id="newEmergencyType" class="form-control">
+            <option>आग लगने की घटना</option>
+            <option>दुर्घटना</option>
+            <option>भगदड़</option>
+            <option>मेडिकल Emergency</option>
+            <option>कानून-व्यवस्था</option>
+            <option>अन्य</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="newEmergencyLocation">Location</label>
+          <select id="newEmergencyLocation" class="form-control">
+            <option value="">-- Location चुनें --</option>
+            <option>Hathras शहर</option>
+            <option>Naya Ganj, Hathras</option>
+            <option>Talab Chauraha, Hathras</option>
+            <option>Aligarh Road, Hathras</option>
+            <option>Agra Road, Hathras</option>
+            <option>Mendu Gate, Hathras</option>
+            <option>Chamar Gate, Hathras</option>
+            <option>Hathras Junction</option>
+            <option>Mursan</option>
+            <option>Sasni</option>
+            <option>Chandpa</option>
+            <option>Sadabad</option>
+            <option>Sikandra Rao</option>
+            <option value="__custom__">अन्य / Custom Location</option>
+          </select>
+
+          <input id="customLocation" class="form-control location-custom"
+            placeholder="Custom Location लिखें">
+          <div class="location-help">Hathras की sample locations उपलब्ध हैं।</div>
+        </div>
+
+        <button id="createEmergencyBtn" class="create-btn">＋ Create Emergency</button>
+      </div>
+
+      <div id="emergencyList" class="emergency-list"></div>
+    </aside>
+
+    <section class="panel detail">
+      <div id="detailContent">
+        <div class="empty">कोई Emergency select करें।</div>
+      </div>
+    </section>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
